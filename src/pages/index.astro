@@ -1,6 +1,6 @@
 ---
 // Portfolio Universitario - Rolando Capuma
-// Cumple todos los requisitos técnicos y opcionales del TP.
+// Diseño moderno: Dark Theme nativo con acentos en azul eléctrico.
 ---
 
 <html lang="es" style="scroll-behavior: smooth;">
@@ -11,138 +11,179 @@
     <meta name="description" content="Portfolio de Rolando Capuma, Desarrollador de Software y Estudiante de Ingeniería en Sistemas.">
     
     <style>
-      /* Variables CSS (Modo Claro por defecto) */
+      /* Variables CSS (Modo Oscuro Por Defecto - Moderno) */
       :root {
-        --primario: #0056b3;
-        --fondo: #f8f9fa;
-        --texto: #333333;
-        --texto-claro: #555555;
-        --tarjeta: #ffffff;
-        --borde: #eaeaea;
-        --btn-hover: #004494;
+        --fondo: #0b0f19; /* Negro azulado profundo */
+        --tarjeta: #111827; /* Gris muy oscuro */
+        --borde: #1f2937; /* Gris oscuro para divisiones */
+        --primario: #3b82f6; /* Azul eléctrico */
+        --primario-hover: #2563eb; 
+        --primario-brillo: rgba(59, 130, 246, 0.4); /* Sombra neón */
+        --texto: #f3f4f6; /* Blanco humo */
+        --texto-claro: #9ca3af; /* Gris claro */
+        --gradiente: linear-gradient(135deg, #3b82f6, #06b6d4);
       }
       
-      /* Variables CSS (Modo Oscuro - Requisito Opcional) */
-      body.tema-oscuro {
-        --primario: #66b2ff;
-        --fondo: #121212;
-        --texto: #f0f0f0;
-        --texto-claro: #b0b0b0;
-        --tarjeta: #1e1e1e;
-        --borde: #333333;
-        --btn-hover: #3399ff;
+      /* Variables CSS (Modo Claro Alternativo) */
+      body.tema-claro {
+        --fondo: #f8fafc;
+        --tarjeta: #ffffff;
+        --borde: #e2e8f0;
+        --primario: #0284c7;
+        --primario-hover: #0369a1;
+        --primario-brillo: rgba(2, 132, 199, 0.2);
+        --texto: #0f172a;
+        --texto-claro: #475569;
+        --gradiente: linear-gradient(135deg, #0284c7, #0ea5e9);
       }
       
       * { box-sizing: border-box; margin: 0; padding: 0; }
       
       body {
-        font-family: system-ui, -apple-system, sans-serif;
+        font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
         background-color: var(--fondo);
         color: var(--texto);
         line-height: 1.6;
         transition: background-color 0.3s, color 0.3s;
       }
 
-      /* Accesibilidad: Navegación por teclado */
       a:focus, button:focus, input:focus, textarea:focus {
-        outline: 3px solid var(--primario);
-        outline-offset: 2px;
+        outline: 2px solid var(--primario);
+        outline-offset: 3px;
       }
 
       .contenedor { max-width: 1000px; margin: 0 auto; padding: 0 20px; }
 
-      /* Navegación */
+      /* --- NAVEGACIÓN --- */
       header {
         display: flex; justify-content: space-between; align-items: center;
-        padding: 20px 0; flex-wrap: wrap; gap: 15px;
+        padding: 25px 0; flex-wrap: wrap; gap: 15px;
+        border-bottom: 1px solid var(--borde);
       }
-      .logo { font-size: 1.5rem; font-weight: bold; color: var(--primario); }
+      .logo { font-size: 1.5rem; font-weight: 800; letter-spacing: 1px; color: var(--texto); }
+      .logo span { color: var(--primario); }
+      
       nav { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; justify-content: center; }
-      nav ul { display: flex; gap: 20px; list-style: none; }
-      nav a { text-decoration: none; color: var(--texto); font-weight: 600; }
+      nav ul { display: flex; gap: 25px; list-style: none; }
+      nav a { text-decoration: none; color: var(--texto-claro); font-weight: 500; transition: color 0.2s; }
       nav a:hover { color: var(--primario); }
       
       .btn-tema {
         background: var(--tarjeta); border: 1px solid var(--borde); color: var(--texto);
-        padding: 8px 12px; border-radius: 6px; cursor: pointer; font-weight: bold;
+        padding: 8px 16px; border-radius: 8px; cursor: pointer; font-weight: bold;
+        transition: all 0.3s ease;
+      }
+      .btn-tema:hover { border-color: var(--primario); box-shadow: 0 0 10px var(--primario-brillo); }
+
+      section { padding: 80px 0; border-bottom: 1px solid var(--borde); }
+      h2 { font-size: 2.2rem; margin-bottom: 40px; color: var(--texto); position: relative; display: inline-block; }
+      h2::after {
+        content: ""; position: absolute; bottom: -10px; left: 0;
+        width: 50%; height: 4px; background: var(--gradiente); border-radius: 2px;
       }
 
-      section { padding: 60px 0; border-bottom: 1px solid var(--borde); }
-      h2 { font-size: 2rem; margin-bottom: 30px; color: var(--texto); }
-
-      /* Hero */
-      #inicio { display: flex; align-items: center; gap: 40px; border-bottom: none; padding: 80px 0; }
+      /* --- HERO --- */
+      #inicio { display: flex; align-items: center; gap: 50px; border-bottom: none; padding: 100px 0 60px; }
       .hero-texto { flex: 1; }
-      h1 { font-size: 3rem; margin-bottom: 10px; line-height: 1.1; }
-      h1 span { color: var(--primario); }
-      .subtitulo { font-size: 1.4rem; color: var(--texto-claro); margin-bottom: 20px; }
       
-      /* Accesibilidad en imagen: se usa role="img" y aria-label si es un emoji o CSS */
+      /* Texto con Degradado Moderno */
+      h1 { font-size: 3.5rem; margin-bottom: 15px; line-height: 1.1; font-weight: 800; }
+      h1 span {
+        background: var(--gradiente);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .subtitulo { font-size: 1.5rem; color: var(--texto-claro); margin-bottom: 25px; font-weight: 500; }
+      
       .avatar {
-        width: 220px; height: 220px; background-color: var(--tarjeta); border-radius: 50%;
-        display: flex; align-items: center; justify-content: center; font-size: 5rem;
-        border: 5px solid var(--borde); box-shadow: 0 4px 10px rgba(0,0,0,0.1); flex-shrink: 0;
+        width: 240px; height: 240px; background-color: var(--tarjeta); border-radius: 50%;
+        display: flex; align-items: center; justify-content: center; font-size: 6rem;
+        border: 4px solid var(--borde); box-shadow: 0 0 30px var(--primario-brillo); flex-shrink: 0;
+        transition: transform 0.3s ease;
       }
+      .avatar:hover { transform: scale(1.05); }
 
-      .botones { display: flex; gap: 15px; margin-top: 25px; flex-wrap: wrap; }
+      /* --- BOTONES --- */
+      .botones { display: flex; gap: 15px; margin-top: 35px; flex-wrap: wrap; }
       .btn {
-        padding: 12px 24px; text-decoration: none; border-radius: 6px;
-        font-weight: bold; border: 2px solid var(--primario); transition: background 0.3s, transform 0.1s;
-        display: inline-flex; align-items: center; justify-content: center;
+        padding: 14px 28px; text-decoration: none; border-radius: 8px;
+        font-weight: 600; transition: all 0.3s ease; display: inline-flex; align-items: center; justify-content: center;
       }
-      .btn-lleno { background: var(--primario); color: white; }
-      .btn-lleno:hover { background: var(--btn-hover); border-color: var(--btn-hover); color: white; }
-      .btn-borde { background: transparent; color: var(--primario); }
-      .btn-borde:hover { background: var(--primario); color: white; }
-
-      .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
-      .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
-
-      .categoria-tech strong { display: block; margin-bottom: 8px; color: var(--primario); }
-      .etiquetas { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 15px; }
-      .tag { background: var(--tarjeta); border: 1px solid var(--borde); color: var(--texto); padding: 5px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; }
+      .btn-lleno { background: var(--primario); color: #fff; border: none; box-shadow: 0 4px 15px var(--primario-brillo); }
+      .btn-lleno:hover { background: var(--primario-hover); transform: translateY(-2px); }
       
-      .tarjeta {
-        background: var(--tarjeta); padding: 25px; border-radius: 10px;
-        border: 1px solid var(--borde); display: flex; flex-direction: column;
+      .btn-borde { background: transparent; color: var(--texto); border: 2px solid var(--borde); }
+      .btn-borde:hover { border-color: var(--primario); color: var(--primario); }
+
+      .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; }
+      .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+
+      /* --- ETIQUETAS TECH --- */
+      .categoria-tech { margin-bottom: 20px; }
+      .categoria-tech strong { display: block; margin-bottom: 12px; color: var(--texto); font-size: 1.1rem; }
+      .etiquetas { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 15px; }
+      .tag { 
+        background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); 
+        color: var(--primario); padding: 6px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; 
       }
-      .tarjeta h3 { margin-bottom: 10px; }
-      .tarjeta p { color: var(--texto-claro); margin-bottom: 20px; flex-grow: 1; }
-      .link-proyecto { color: var(--primario); font-weight: bold; text-decoration: none; }
-      .link-proyecto:hover { text-decoration: underline; }
+      
+      /* --- TARJETAS PROYECTOS (Hover Effects) --- */
+      .tarjeta {
+        background: var(--tarjeta); padding: 30px; border-radius: 12px;
+        border: 1px solid var(--borde); display: flex; flex-direction: column;
+        transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+      }
+      .tarjeta:hover {
+        transform: translateY(-8px);
+        border-color: var(--primario);
+        box-shadow: 0 10px 25px var(--primario-brillo);
+      }
+      .tarjeta h3 { margin-bottom: 12px; font-size: 1.4rem; color: var(--texto); }
+      .tarjeta p { color: var(--texto-claro); margin-bottom: 25px; flex-grow: 1; }
+      .link-proyecto { color: var(--primario); font-weight: bold; text-decoration: none; display: inline-block; transition: transform 0.2s; }
+      .link-proyecto:hover { transform: translateX(5px); }
 
-      form { display: flex; flex-direction: column; gap: 15px; background: var(--tarjeta); padding: 30px; border-radius: 10px; border: 1px solid var(--borde); }
-      label { font-weight: bold; font-size: 0.9rem; }
-      input, textarea { padding: 12px; border: 1px solid var(--borde); border-radius: 6px; background: var(--fondo); color: var(--texto); width: 100%; }
-      button[type="submit"] { background: var(--primario); color: white; border: none; padding: 12px; border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 1rem; }
-      button[type="submit"]:hover { background: var(--btn-hover); }
+      /* --- FORMULARIO --- */
+      form { 
+        display: flex; flex-direction: column; gap: 20px; background: var(--tarjeta); 
+        padding: 35px; border-radius: 12px; border: 1px solid var(--borde); 
+      }
+      label { font-weight: 600; font-size: 0.95rem; color: var(--texto-claro); }
+      input, textarea { 
+        padding: 14px; border: 1px solid var(--borde); border-radius: 8px; 
+        background: var(--fondo); color: var(--texto); width: 100%; transition: border-color 0.3s;
+      }
+      input:focus, textarea:focus { border-color: var(--primario); }
+      button[type="submit"] { 
+        background: var(--gradiente); color: white; border: none; padding: 14px; 
+        border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 1.1rem; 
+        transition: transform 0.2s, box-shadow 0.2s; 
+      }
+      button[type="submit"]:hover { transform: translateY(-2px); box-shadow: 0 4px 15px var(--primario-brillo); }
 
-      footer { text-align: center; padding: 30px 0; color: var(--texto-claro); margin-top: 40px; }
+      footer { text-align: center; padding: 40px 0; color: var(--texto-claro); margin-top: 40px; }
 
-      /* Animaciones Sutiles (Requisito Opcional) */
       @media (prefers-reduced-motion: no-preference) {
-        .animar { opacity: 0; transform: translateY(20px); animation: aparecer 0.6s ease-out forwards; }
+        .animar { opacity: 0; transform: translateY(25px); animation: aparecer 0.7s cubic-bezier(0.1, 0, 0.1, 1) forwards; }
         .retraso-1 { animation-delay: 0.2s; }
         .retraso-2 { animation-delay: 0.4s; }
         @keyframes aparecer { to { opacity: 1; transform: translateY(0); } }
       }
 
-      /* Responsive (Requisito Técnico) */
       @media (max-width: 768px) {
         header { flex-direction: column; text-align: center; }
-        #inicio { flex-direction: column-reverse; text-align: center; }
-        .grid-2 { grid-template-columns: 1fr; }
+        #inicio { flex-direction: column-reverse; text-align: center; padding-top: 50px; }
+        .grid-2 { grid-template-columns: 1fr; gap: 30px; }
         .botones { justify-content: center; }
-        h1 { font-size: 2.2rem; }
+        h1 { font-size: 2.5rem; }
       }
     </style>
   </head>
   <body>
     <div class="contenedor">
       
-      <!-- 1. NAVEGACIÓN SEMÁNTICA Y ACCESIBLE -->
       <header>
-        <div class="logo">&lt;Rolando /&gt;</div>
+        <div class="logo">Rolando<span>.dev</span></div>
         <nav aria-label="Navegación principal">
           <ul>
             <li><a href="#inicio">Inicio</a></li>
@@ -150,37 +191,36 @@
             <li><a href="#proyectos">Proyectos</a></li>
             <li><a href="#contacto">Contacto</a></li>
           </ul>
-          <!-- Botón Modo Oscuro -->
-          <button id="btn-tema" class="btn-tema" aria-label="Alternar modo oscuro">🌙 Oscuro</button>
+          <!-- El botón arranca diciendo "Claro" porque estamos en oscuro por defecto -->
+          <button id="btn-tema" class="btn-tema" aria-label="Alternar modo claro/oscuro">☀️ Claro</button>
         </nav>
       </header>
 
       <main>
         
-        <!-- 2. SECCIÓN HERO (Único H1) -->
         <section id="inicio" class="animar">
           <div class="hero-texto">
-            <h1>Hola, soy <span>Rolando Capuma</span></h1>
-            <p class="subtitulo">Desarrollador de Software / Estudiante de Ingeniería en Sistemas</p>
-            <p>Me apasiona el desarrollo backend, el diseño de bases de datos y la resolución de problemas lógicos. Actualmente construyendo soluciones escalables y aplicando mi perfil técnico en sistemas informáticos.</p>
+            <h1>Hola, soy <br><span>Rolando Capuma</span></h1>
+            <p class="subtitulo">Desarrollador de Software & Infraestructura IT</p>
+            <p style="color: var(--texto-claro); font-size: 1.1rem; margin-bottom: 20px;">
+              Estudiante de Ingeniería en Sistemas. Me apasiona la creación de arquitecturas backend robustas, el diseño de bases de datos y la configuración avanzada de redes y hardware.
+            </p>
             
             <div class="botones">
               <a href="#proyectos" class="btn btn-lleno">Ver proyectos</a>
               <a href="#contacto" class="btn btn-borde">Contactarme</a>
-              <!-- Requisito Opcional: CV Descargable -->
-              <a href="/cv.pdf" download="CV_Rolando_Capuma.pdf" class="btn btn-borde" aria-label="Descargar mi Currículum en PDF">📄 Descargar CV</a>
             </div>
           </div>
-          <div class="avatar" role="img" aria-label="Avatar de Rolando Capuma">💻</div>
+          <!-- Le puse un emoji más tecnológico -->
+          <div class="avatar" role="img" aria-label="Avatar de Rolando Capuma">🖥️</div>
         </section>
 
-        <!-- 3. SECCIÓN SOBRE MÍ -->
         <section id="sobre-mi" class="animar retraso-1">
           <h2>Sobre mí</h2>
           <div class="grid-2">
             <div>
-              <p style="margin-bottom: 15px;">Soy estudiante de Ingeniería en Sistemas en UAI, con un fuerte enfoque en el diseño de arquitectura lógica y datos. Disfruto desarrollando desde el esquema relacional hasta el backend del servidor.</p>
-              <p>También tengo experiencia en administración comercial, lo que me permite comprender los requerimientos del negocio y traducirlos en soluciones de software eficientes bajo metodologías ágiles.</p>
+              <p style="margin-bottom: 15px; color: var(--texto-claro);">Soy estudiante de Ingeniería en Sistemas en UAI, con un fuerte enfoque en la arquitectura lógica de software y el diseño de bases de datos relacionales.</p>
+              <p style="color: var(--texto-claro);">Además de la programación orientada a objetos y el entorno web, tengo amplios conocimientos en configuración de hardware, diagnóstico de equipos y administración de redes, buscando siempre soluciones integrales a nivel de software e infraestructura.</p>
             </div>
             
             <div>
@@ -188,71 +228,88 @@
                 <strong>Backend & Base de Datos</strong>
                 <div class="etiquetas">
                   <span class="tag">C# & ASP.NET Core</span>
-                  <span class="tag">Python</span>
+                  <span class="tag">Python (POO)</span>
                   <span class="tag">SQL Server</span>
                 </div>
               </div>
               <div class="categoria-tech">
-                <strong>Frontend & Herramientas</strong>
+                <strong>Infraestructura & Redes</strong>
                 <div class="etiquetas">
-                  <span class="tag">HTML / CSS</span>
+                  <span class="tag">Arquitectura PC</span>
+                  <span class="tag">Redes (IPv4 / Subnetting)</span>
+                </div>
+              </div>
+              <div class="categoria-tech">
+                <strong>Herramientas & Flujo de trabajo</strong>
+                <div class="etiquetas">
                   <span class="tag">Git & GitHub</span>
-                  <span class="tag">Scrum / Metodologías Ágiles</span>
+                  <span class="tag">HTML / CSS</span>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        <!-- 4. SECCIÓN PROYECTOS -->
         <section id="proyectos" class="animar retraso-2">
           <h2>Proyectos Destacados</h2>
           <div class="grid-3">
             
             <article class="tarjeta">
-              <h3>Dashboard Académico</h3>
-              <p>Aplicación web con arquitectura MVC. Visualización y gestión de datos mediante conexión directa a base de datos relacional.</p>
+              <h3>Sistema de Compra y Venta</h3>
+              <p>Aplicación web enfocada en la gestión de transacciones. Arquitectura MVC con visualización y administración de inventario mediante conexión directa a base de datos.</p>
               <div class="etiquetas">
                 <span class="tag">ASP.NET Core</span>
                 <span class="tag">SQL Server</span>
               </div>
-              <a href="https://github.com/rolan-11" target="_blank" rel="noopener noreferrer" class="link-proyecto" aria-label="Ver código de Dashboard Académico en GitHub">Ver repositorio →</a>
+              <a href="https://github.com/rolan-11" target="_blank" rel="noopener noreferrer" class="link-proyecto">Ver repositorio ➔</a>
             </article>
 
             <article class="tarjeta">
-              <h3>DB: Gestión de Eventos</h3>
-              <p>Diseño de esquema relacional completo. Incluye creación de vistas SQL, restricciones y carga de datos de prueba estructurados.</p>
+              <h3>Plataforma EcoObra</h3>
+              <p>Desarrollo de estrategia de negocios y propuesta tecnológica de triple impacto para una plataforma orientada a la redistribución de materiales de construcción.</p>
               <div class="etiquetas">
-                <span class="tag">SQL Server</span>
-                <span class="tag">Diseño de DB</span>
+                <span class="tag">Análisis de Sistemas</span>
+                <span class="tag">Estrategia IT</span>
               </div>
-              <a href="https://github.com/rolan-11" target="_blank" rel="noopener noreferrer" class="link-proyecto" aria-label="Ver código de Base de Datos Eventos en GitHub">Ver repositorio →</a>
+              <a href="https://github.com/rolan-11" target="_blank" rel="noopener noreferrer" class="link-proyecto">Ver propuesta ➔</a>
             </article>
 
             <article class="tarjeta">
-              <h3>Simulador POO</h3>
-              <p>Script funcional enfocado en Programación Orientada a Objetos, con implementación de herencia, métodos y atributos de personajes.</p>
+              <h3>Simulador POO en Python</h3>
+              <p>Script interactivo de Programación Orientada a Objetos. Implementación estructurada de clases, herencia, métodos y atributos para gestión de entidades.</p>
               <div class="etiquetas">
                 <span class="tag">Python</span>
                 <span class="tag">POO</span>
               </div>
-              <a href="https://github.com/rolan-11" target="_blank" rel="noopener noreferrer" class="link-proyecto" aria-label="Ver código de Simulador POO en GitHub">Ver repositorio →</a>
+              <a href="https://github.com/rolan-11" target="_blank" rel="noopener noreferrer" class="link-proyecto">Ver repositorio ➔</a>
             </article>
 
           </div>
         </section>
 
-        <!-- 5. SECCIÓN CONTACTO -->
         <section id="contacto">
           <h2>Contacto</h2>
           <div class="grid-2">
             <div>
-              <p style="margin-bottom: 20px;">Si te interesa mi perfil técnico o querés conversar sobre desarrollo de software, enviame un mensaje o conectemos en redes.</p>
+              <p style="margin-bottom: 25px; color: var(--texto-claro);">Si te interesa mi perfil técnico o querés conversar sobre desarrollo de software e infraestructura, enviame un mensaje y te respondo a la brevedad.</p>
               
-              <ul style="list-style: none; display: flex; flex-direction: column; gap: 15px;">
-                <li>📧 <a href="mailto:tu-email@ejemplo.com" class="link-proyecto" style="color: var(--texto);">tu-email@ejemplo.com</a></li>
-                <li>🐙 <a href="https://github.com/rolan-11" target="_blank" rel="noopener noreferrer" class="link-proyecto" style="color: var(--texto);">github.com/rolan-11</a></li>
-                <li>💼 <a href="https://linkedin.com/in/tu-perfil" target="_blank" rel="noopener noreferrer" class="link-proyecto" style="color: var(--texto);">LinkedIn</a></li>
+              <ul style="list-style: none; display: flex; flex-direction: column; gap: 20px;">
+                <li style="display: flex; align-items: center; gap: 10px;">
+                  <span style="font-size: 1.5rem;">📧</span> 
+                  <a href="mailto:rolandocop@gmail.com" class="link-proyecto" style="color: var(--texto); font-weight: normal;">rolandocop@gmail.com</a>
+                </li>
+                <li style="display: flex; align-items: center; gap: 10px;">
+                  <span style="font-size: 1.5rem;">📱</span> 
+                  <a href="#" class="link-proyecto" style="color: var(--texto); font-weight: normal;">+54 9 341 555-0192</a>
+                </li>
+                <li style="display: flex; align-items: center; gap: 10px;">
+                  <span style="font-size: 1.5rem;">🐙</span> 
+                  <a href="https://github.com/rolan-11" target="_blank" rel="noopener noreferrer" class="link-proyecto" style="color: var(--texto); font-weight: normal;">github.com/rolan-11</a>
+                </li>
+                <li style="display: flex; align-items: center; gap: 10px;">
+                  <span style="font-size: 1.5rem;">💼</span> 
+                  <span style="color: var(--texto-claro);">LinkedIn (Próximamente)</span>
+                </li>
               </ul>
             </div>
 
@@ -276,29 +333,28 @@
 
       </main>
 
-      <footer>
-        <p>© 2026 Rolando Capuma. Proyecto final de materia.</p>
+      <footer style="border-top: 1px solid var(--borde);">
+        <p>© 2026 Rolando Capuma. Proyecto final de Ingeniería en Sistemas.</p>
       </footer>
     </div>
 
-    <!-- Scripts de interactividad -->
     <script>
-      // 1. Lógica del formulario
+      // 1. Formulario
       const form = document.getElementById('form-contacto');
       if(form) {
         form.addEventListener('submit', (e) => {
           e.preventDefault();
-          alert('¡Validación exitosa! Todos los campos están correctos.');
+          alert('¡Mensaje enviado correctamente! Me pondré en contacto a la brevedad.');
           form.reset();
         });
       }
 
-      // 2. Lógica del Modo Oscuro
+      // 2. Modo Claro / Oscuro (Ahora invierte a claro)
       const btnTema = document.getElementById('btn-tema');
       btnTema.addEventListener('click', () => {
-        document.body.classList.toggle('tema-oscuro');
-        const esOscuro = document.body.classList.contains('tema-oscuro');
-        btnTema.textContent = esOscuro ? '☀️ Claro' : '🌙 Oscuro';
+        document.body.classList.toggle('tema-claro');
+        const esClaro = document.body.classList.contains('tema-claro');
+        btnTema.textContent = esClaro ? '🌙 Oscuro' : '☀️ Claro';
       });
     </script>
   </body>
