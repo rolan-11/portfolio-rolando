@@ -1,43 +1,24 @@
-# Astro Starter Kit: Minimal
+# Portfolio Personal - Rolando Capuma
 
-```sh
-npm create astro@latest -- --template minimal
-```
+Portfolio personal desarrollado para la presentación de trabajos y perfil profesional, construido con un enfoque ligero, semántico y accesible.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## 🚀 Stack Elegido
+- **Framework:** Astro (Generador de Sitios Estáticos para máximo rendimiento).
+- **Estilos:** Vanilla CSS (CSS puro con Variables y Flexbox/Grid) para evitar dependencias externas, garantizar el 100% de compatibilidad y control total del Responsive Design.
+- **Interactividad:** JavaScript nativo (Vanilla JS) para la validación del formulario y el alternador de Modo Oscuro.
 
-## 🚀 Project Structure
+## ⚙️ Cómo correr el proyecto localmente
 
-Inside of your Astro project, you'll see the following folders and files:
+1. Clonar el repositorio:
+git clone https://github.com/rolan-11/portfolio-rolando.git
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+2. Entrar a la carpeta:
+cd portfolio-rolando
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+3. Instalar las dependencias de Astro:
+npm install
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+4. Levantar el servidor de desarrollo:
+npm run dev
 
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+5. Abrir el navegador en http://localhost:4321
